@@ -193,7 +193,7 @@ const deleteIngresoAlevine = (req, res) => {
           console.error("Error al eliminar el registro:", err);
           res.status(500).send({ error: "Error en el servidor" });
         } else {
-          console.log(result);
+          
           res.send({ message: "Registro eliminado" });
         }
       });

@@ -117,12 +117,12 @@ const updateMortalidad = (req, res) => {
             return;
           }
   
-          console.log(result);
+          // console.log(result);
           res.json({ message: 'Registro actualizado' });
         });
       });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       res.status(500).json({ message: 'Error en el servidor' });
     }
   };
@@ -143,7 +143,7 @@ const deleteMortalidad = (req, res) => {
           console.error("Error al eliminar el registro:", err);
           res.status(500).send({ error: "Error en el servidor" });
         } else {
-          console.log(result);
+          // console.log(result);
           res.send({ message: "Registro eliminado" });
         }
       });

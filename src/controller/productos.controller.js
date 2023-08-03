@@ -66,7 +66,7 @@ Aqui se actualiza
 const updateProductos = (req, res) => {
   const { id } = req.params;
 
-  const selectQuery = `SELECT * FROM productos WHERE idProducto = ?;`;
+  const selectQuery = `SELECT * FROM productos WHERE idProductos = ?;`;
   const query = mysql2.format(selectQuery, [id]);
 
   try {
@@ -85,7 +85,7 @@ const updateProductos = (req, res) => {
 
       const productoActual = result[0];
 
-      const campos = ['tipoProducto' ,'precio', 'iva'];
+      const campos = ['Fecha' ,'Producto', 'Descripcion', 'Cantidad', 'Precio', 'Iva'];
 
       let datosModificados = false; // Inicializar como false
 
@@ -100,7 +100,7 @@ const updateProductos = (req, res) => {
         res.status(400).json({ message: 'No es necesario realizar la actualización' });
         return;
       }
-      const updateQuery = `UPDATE productos SET ? WHERE idProducto= ?;`;
+      const updateQuery = `UPDATE productos SET ? WHERE idProductos= ?;`;
       const updateValues = [valoresModificados, id]; // Copia de los valores de req.body
       const updateQueryFormatted = mysql2.format(updateQuery, updateValues);
 
@@ -129,7 +129,7 @@ const deleteProductos = (req, res) => {
     try {
       const { id } = req.params;
   
-      const deleteQuery = `DELETE FROM productos WHERE idProducto=?`;
+      const deleteQuery = `DELETE FROM productos WHERE idProductos=?`;
       const query = mysql2.format(deleteQuery, [id]);
   
       database.query(query, (err, result) => {

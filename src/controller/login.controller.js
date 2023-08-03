@@ -85,7 +85,7 @@ const deleteLogin = (req, res) => {
 
   database.query(query, (err, result) => {
     if (err) throw err;
-    console.log(result);
+    // console.log(result);
     if (result.affectedRows > 0) {
       res.send({ message: 'Usuario Eliminado' });
     } else {
@@ -134,7 +134,7 @@ const validarLogin = (req, res) => {
       Nombre: result[0].Nombre,
       Apellido: result[0].Apellido
     }, process.env.JWT_SECRET, { expiresIn: '60m' }); // Utiliza la clave secreta de la variable de entorno
-    console.log(process.env.JWT_SECRET);
+    // console.log(process.env.JWT_SECRET);
     // res.status(200).json({ token });
     res.header('auth-token', token).json({
       error: null,

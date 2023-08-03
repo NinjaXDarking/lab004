@@ -15,6 +15,7 @@ const empleadosRoutes = require('./src/routes/empleados.routes');
 const ventasRoutes = require('./src/routes/ventas.routes');
 const registroRoutes = require('./src/routes/registro.routes');
 const productosRoutes = require('./src/routes/productos.routes');
+const inventarioRoutes = require('./src/routes/inventario.routes');
 const verifyToken = require('./src/routes/validate-token.routes');
 
 
@@ -42,5 +43,6 @@ app.use('/empleados', empleadosRoutes );
 app.use('/ventas', ventasRoutes);
 app.use('/registro', registroRoutes);
 app.use('/productos', productosRoutes);
+app.use('/inventario', inventarioRoutes);
 //Exportamos app 
 module.exports = app;
